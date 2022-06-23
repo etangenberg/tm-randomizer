@@ -1,3 +1,63 @@
-{
-
-}
+[
+  {
+    "id": "alchemists", "key": 1, "name": "Alchemists",
+    "bonusCards": {
+      "prefer": [6,9],
+      "dislike": [2,4],
+      "firstPick": [9,6]
+    },
+    "roundTiles": {
+      "prefer": {
+        "early": [5, 7],
+        "middle": [1],
+        "late": [2, 4, 8]
+      }
+    }
+  },
+  {
+    "id": "darklings", "key": 2, "name": "Darklings",
+    "bonusCards": {
+      "prefer": [5,6,7,8,9],
+      "dislike": [3,10],
+      "firstPick": [6,9]
+    },
+    "roundTiles": {
+      "prefer": {
+        "early": [1, 5, 7],
+        "middle": [],
+        "late": [4, 8]
+      }
+    }
+  },
+  {
+    "id": "mermaids", "key": 3, "name": "Mermaids",
+    "bonusCards": {
+      "prefer": [1,3,4,10],
+      "dislike": [6,9],
+      "firstPick": [3,10]
+    },
+    "roundTiles": {
+      "prefer": {
+        "early": [1],
+        "middle": [4],
+        "late": [2]
+      },
+      "dislike": [5,7]
+    }
+  },
+  {
+    "id": "swarmlings", "key": 4, "name": "Swarmlings",
+    "bonusCards": {
+      "prefer": [1,6,8,9],
+      "dislike": [],
+      "firstPick": [1,9]
+    },
+    "roundTiles": {
+      "prefer": {
+        "early": [1],
+        "middle": [4, 8],
+        "late": [3, 6]
+      }
+    }
+  }
+]

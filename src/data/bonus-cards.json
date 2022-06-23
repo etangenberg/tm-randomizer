@@ -1,0 +1,33 @@
+
+[
+  {
+    "id": "Spade_2C", "key": 1
+  },
+  {
+    "id": "Cult_4C", "key": 2
+  },
+  {
+    "id": "Ship_3PW", "key": 3
+  },
+  {
+    "id": "6C", "key": 4
+  },
+  {
+    "id": "3PW_1W", "key": 5
+  },
+  {
+    "id": "1P", "key": 6
+  },
+  {
+    "id": "Pass-D-2VP_2C", "key": 7
+  },
+  {
+    "id": "Pass-TP-3VP_1W", "key": 8
+  },
+  {
+    "id": "Pass-SH/SA-5VP_2W", "key": 9
+  },
+  {
+    "id": "Pass-Ship-3VP_3PW", "key": 10
+  }
+]

@@ -57,6 +57,18 @@ describe('Function - sut', () => {
         ])('weight match on index early %s on tiles gives %s', (early, value) => {
           expect(sut(tiles, { prefer: { early } } )).toBe(value);
         });
+
+        const customW = [2,2,1];
+        it.each([
+          [[1], 2],
+          [[2], 2],
+          [[3], 1],
+          [[4], 0],
+          [[5], 0],
+          [[6], 0],
+        ])('custom weights on index early %s on tiles gives %s', (early, value) => {
+          expect(sut(tiles, { prefer: { early } }, { early: customW } )).toBe(value);
+        });
       });
 
       describe('middle', () => {
@@ -70,6 +82,18 @@ describe('Function - sut', () => {
         ])('weight match on index middle %s on tiles gives %s', (middle, value) => {
           expect(sut(tiles, { prefer: { middle } } )).toBe(value);
         });
+
+        const customW = [0, 0.2, 2, 2, 0.2, 0];
+        it.each([
+          [[1], 0],
+          [[2], 0.2],
+          [[3], 2],
+          [[4], 2],
+          [[5], 0.2],
+          [[6], 0],
+        ])('custom weights match on index middle %s on tiles gives %s', (middle, value) => {
+          expect(sut(tiles, { prefer: { middle } }, { middle: customW } )).toBe(value);
+        });
       });
 
       describe('late', () => {
@@ -82,6 +106,19 @@ describe('Function - sut', () => {
           [[6], 1],
         ])('weight match on index late %s on tiles gives %s', (late, value) => {
           expect(sut(tiles, { prefer: { late } } )).toBe(value);
+        });
+
+        const customW = [0, 0, 0, 0.3, 1.5, 1.5];
+
+        it.each([
+          [[1], 0],
+          [[2], 0],
+          [[3], 0],
+          [[4], 0.3],
+          [[5], 1.5],
+          [[6], 1.5],
+        ])('custom weight match on index late %s on tiles gives %s', (late, value) => {
+          expect(sut(tiles, { prefer: { late } }, { late: customW })).toBe(value);
         });
       });
 

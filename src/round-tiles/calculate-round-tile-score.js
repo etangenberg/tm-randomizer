@@ -16,15 +16,21 @@ const score = (tiles, prefer, weights) => {
   )
 };
 
-const calculateRoundTilesScore = (roundTilesByKey, roundTilesPreference) => {
+const calculateRoundTilesScore = (roundTilesByKey, roundTilesPreference, weights) => {
   validateInput(roundTilesByKey, roundTilesPreference);
+
 
   const { prefer } = roundTilesPreference || {};
   const { early, middle, late } = prefer || {};
 
-  const earlyWeights = [1, 1, 0.5];
-  const middleWeights = [0, 0.5, 1, 1, 0.5];
-  const lateWeights = [0, 0, 0, 0.5, 1, 1];
+  const defEarlyWeights = [1, 1, 0.5];
+  const defMiddleWeights = [0, 0.5, 1, 1, 0.5];
+  const defLateWeights = [0, 0, 0, 0.5, 1, 1];
+  const { early: ew, middle: mw, late: lw } = weights || {};
+  const earlyWeights = ew || defEarlyWeights;
+  const middleWeights = mw || defMiddleWeights;
+  const lateWeights = lw || defLateWeights;
+
   const e = early && early.length ? score(roundTilesByKey, early, earlyWeights) : 0;
   const m = middle && middle.length ? score(roundTilesByKey, middle, middleWeights) : 0;
   const l = late && late.length ? score(roundTilesByKey, late, lateWeights) : 0;

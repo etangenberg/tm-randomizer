@@ -6,10 +6,11 @@ import roundTiles from './data/round-tiles.json';
 import bonusCards from './data/bonus-cards.json';
 import factions from './data/factions.json';
 import calc from './round-tiles/calculate-round-tile-score';
+import calcBonus from './bonus-cards/calculate-bonus-cards-score';
 import TileElement from './round-tiles/component/tile-element';
 
 const App = ()  => {
-  const playerCount = 4;
+  const playerCount = 2;
   const roundTileKeys = createArrray(8);
   const bonusCardsKeys = createArrray(10);
   const shuffledRoundTiles = shuffleArray(roundTileKeys);
@@ -35,32 +36,48 @@ const App = ()  => {
 
 
   const renderRoundTilesScore = () => (
-    <div className="factions">
+    <div className="score-type">
+      <div className="score-header">Round tile score</div>
       {factions
         .map(({ roundTiles, ...faction })=> ({
           rt_score: calc(usedRoundTiles, roundTiles), ...faction
         }))
         .sort((a, b) => (b.rt_score - a.rt_score))
         .map((faction) => (
-          <TileElement {...faction} />))
-    // .map((f) => ({
-    //   name: f.name,
-    //   score: calculateRoundTilesScore(usedRoundTiles, f.roundTiles),
-    // }))
-    // .sort((a, b) => a.score - b.score)
-    // .map(({ name }) => (<p>name</p>));
+          <div>
+            <div className="score">{faction.rt_score}</div>
+            <TileElement {...faction} />
+          </div>
+        ))
+      }
+    </div>
+  );
+
+  const renderBonusCardsScore = () => (
+    <div className="score-type">
+      <div className="score-header">Bonus cards score</div>
+      {factions
+        .map(({ bonusCards, ...faction })=> ({
+          bc_score: calcBonus(usedBonusCards, bonusCards), ...faction
+        }))
+        .sort((a, b) => (b.bc_score - a.bc_score))
+        .map((faction) => (
+          <div>
+            <div className="score">{faction.bc_score}</div>
+            <TileElement {...faction} />
+          </div>
+        ))
       }
     </div>
   );
   return (
     <div>
-      <p>
-        {renderRoundTiles()}
-      </p>
-      <p>
+      {renderRoundTiles()}
         {renderBonusCards()}
-      </p>
-      <p>{renderRoundTilesScore()}</p>
+        <div className="faction-scoring">
+          {renderRoundTilesScore()}
+          {renderBonusCardsScore()}
+        </div>
     </div>
   );
 }

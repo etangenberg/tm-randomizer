@@ -22,10 +22,16 @@ body {
 }
 
 .bonus-card {
-  width: 10 0px;
+  width: 100px;
 }
 
 
 .bonus-card > img {
   width: 100%;
+}
+.faction-scoring {
+  display: flex;
+}
+.score-type {
+  padding: 1em;
 }

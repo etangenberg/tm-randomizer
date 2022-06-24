@@ -15,15 +15,22 @@ const App = ()  => {
   const bonusCardsKeys = createArrray(10);
   const shuffledRoundTiles = shuffleArray(roundTileKeys);
   const shuffledbonusCardsKeys = shuffleArray(bonusCardsKeys);
-  const usedRoundTiles = shuffledRoundTiles.slice(0, 6);
-  const usedBonusCards = shuffledbonusCardsKeys.slice(0, playerCount + 3);
-
+  const usedRoundTilesKeys = shuffledRoundTiles.slice(0, 6);
+  const usedBonusCardsKeys = shuffledbonusCardsKeys.slice(0, playerCount + 3);
+ 
+  const usedRoundTiles = usedRoundTilesKeys.map((key) => roundTiles.find((t) => t.key === key));
+  const usedBonusCards = usedBonusCardsKeys.map((key) => bonusCards.find((t) => t.key === key));
   const renderRoundTiles = () => (
     <div className="round-tiles">
     {usedRoundTiles.map(
-      (k) => <TileElement
-      className="round-tile"
-      {...roundTiles.find((rt) => (rt.key === k)) || {}} />)}
+      (k, index) => (
+        <div className="round">
+          <div className="round-name">{`Round ${index+1}`}</div>
+          <TileElement
+            className="round-tile"
+            {...k || {}} />
+        </div>
+      ))}
     </div>);
 
   const renderBonusCards = () => (
@@ -31,7 +38,7 @@ const App = ()  => {
     {usedBonusCards.map(
       (k) => <TileElement
       className=" bonus-card"
-      {...bonusCards.find((rt) => (rt.key === k)) || {}} />)}
+      {...k || {}} />)}
       </div>);
 
 
@@ -40,7 +47,7 @@ const App = ()  => {
       <div className="score-header">Round tile score</div>
       {factions
         .map(({ roundTiles, ...faction })=> ({
-          rt_score: calc(usedRoundTiles, roundTiles), ...faction
+          rt_score: calc(usedRoundTilesKeys, roundTiles), ...faction
         }))
         .sort((a, b) => (b.rt_score - a.rt_score))
         .map((faction) => (
@@ -58,7 +65,7 @@ const App = ()  => {
       <div className="score-header">Bonus cards score</div>
       {factions
         .map(({ bonusCards, ...faction })=> ({
-          bc_score: calcBonus(usedBonusCards, bonusCards), ...faction
+          bc_score: calcBonus(usedBonusCardsKeys, bonusCards), ...faction
         }))
         .sort((a, b) => (b.bc_score - a.bc_score))
         .map((faction) => (
@@ -70,14 +77,24 @@ const App = ()  => {
       }
     </div>
   );
+
+  const renderSetup = () => (
+    <div className="setup">
+      RoundTiles:
+      {usedRoundTiles.map((r) => r.id).join(', ')}
+      BonusCards:
+      {usedBonusCards.map((c)=> c.id).join(', ')}
+    </div>
+  );
   return (
     <div>
       {renderRoundTiles()}
-        {renderBonusCards()}
-        <div className="faction-scoring">
-          {renderRoundTilesScore()}
-          {renderBonusCardsScore()}
-        </div>
+      {renderBonusCards()}
+      {renderSetup()}
+      <div className="faction-scoring">
+        {renderRoundTilesScore()}
+        {renderBonusCardsScore()}
+      </div>
     </div>
   );
 }

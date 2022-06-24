@@ -119,5 +119,35 @@
         "late": [4,8]
       }
     }
+  },
+  {
+    "id": "chaos_magicians", "key": 9, "name": "Chaos Magicians",
+    "bonusCards": {
+      "prefer": [1,9],
+      "dislike": [],
+      "firstPick": [1,9]
+    },
+    "roundTiles": {
+      "prefer": {
+        "early": [5,7],
+        "middle": [],
+        "late": [2]
+      }
+    }
+  },
+  {
+    "id": "giants", "key": 9, "name": "Giants",
+    "bonusCards": {
+      "prefer": [2,5,9],
+      "dislike": [1,10],
+      "firstPick": [9,5]
+    },
+    "roundTiles": {
+      "prefer": {
+        "early": [5,7],
+        "middle": [],
+        "late": [2]
+      }
+    }
   }
 ]

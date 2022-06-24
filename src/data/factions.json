@@ -89,5 +89,35 @@
         "late": [2]
       }
     }
+  },
+  {
+    "id": "dwarfs", "key": 7, "name": "Dwarfs",
+    "bonusCards": {
+      "prefer": [1,5,6],
+      "dislike": [3, 10],
+      "firstPick": [5,1]
+    },
+    "roundTiles": {
+      "prefer": {
+        "early": [],
+        "middle": [5,7],
+        "late": [3,6]
+      }
+    }
+  },
+  {
+    "id": "engineers", "key": 8, "name": "Engineers",
+    "bonusCards": {
+      "prefer": [1,5,9],
+      "dislike": [],
+      "firstPick": [1,5]
+    },
+    "roundTiles": {
+      "prefer": {
+        "early": [1],
+        "middle": [5,7],
+        "late": [4,8]
+      }
+    }
   }
 ]

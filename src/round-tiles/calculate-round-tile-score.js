@@ -16,25 +16,30 @@ const score = (tiles, prefer, weights) => {
   )
 };
 
+const countIncludes = (tiles, values, weight) => tiles.filter((t) => values.includes(t)).length * weight;
+
 const calculateRoundTilesScore = (roundTilesByKey, roundTilesPreference, weights) => {
   validateInput(roundTilesByKey, roundTilesPreference);
 
 
-  const { prefer } = roundTilesPreference || {};
+  const { prefer, dislike } = roundTilesPreference || {};
   const { early, middle, late } = prefer || {};
 
   const defEarlyWeights = [1, 1, 0.5];
   const defMiddleWeights = [0, 0.5, 1, 1, 0.5];
   const defLateWeights = [0, 0, 0, 0.5, 1, 1];
-  const { early: ew, middle: mw, late: lw } = weights || {};
+  const { early: ew, middle: mw, late: lw, dislike: dw } = weights || {};
   const earlyWeights = ew || defEarlyWeights;
   const middleWeights = mw || defMiddleWeights;
   const lateWeights = lw || defLateWeights;
+  const dislikeWeight = dw !== undefined ? dw : 1;
 
   const e = early && early.length ? score(roundTilesByKey, early, earlyWeights) : 0;
   const m = middle && middle.length ? score(roundTilesByKey, middle, middleWeights) : 0;
   const l = late && late.length ? score(roundTilesByKey, late, lateWeights) : 0;
-  return e + m + l;
+  const d = dislike && dislike.length ? countIncludes(roundTilesByKey, dislike, dislikeWeight) : 0;
+
+  return e + m + l - d;
 };
 
 export default calculateRoundTilesScore;

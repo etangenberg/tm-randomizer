@@ -131,5 +131,26 @@ describe('Function - sut', () => {
         });
       });
     });
+
+    describe('dislike', () => {
+      it.each([
+        [[2], -1],
+        [[7], 0],
+        [[2,3,4], -3],
+        [[7,3], -1],
+      ])('extracts if dislike match, %s %s', (dislike, value) => {
+        expect(sut(tiles, { dislike } )).toBe(value);
+      });
+
+      const customW = 0.5;
+      it.each([
+        [[2], customW, -0.5],
+        [[7], customW, 0],
+        [[2,3,4], customW, -1.5],
+        [[7,3], 0, 0],
+      ])('extracts if dislike match, %s %s', (dislike, w, value) => {
+        expect(sut(tiles, { dislike }, { dislike: w } )).toBe(value);
+      });
+    });
   });
 });

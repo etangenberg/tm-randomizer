@@ -1,6 +1,7 @@
 [
   {
     "id": "alchemists", "key": 1, "name": "Alchemists",
+    "src": "./images/AlchemistsIcon.gif",
     "bonusCards": {
       "prefer": [6,9],
       "dislike": [2,4],
@@ -16,6 +17,7 @@
   },
   {
     "id": "darklings", "key": 2, "name": "Darklings",
+    "src": "./images/DarklingsIcon.gif",
     "bonusCards": {
       "prefer": [5,6,7,8,9],
       "dislike": [3,10],
@@ -25,12 +27,13 @@
       "prefer": {
         "early": [1, 5, 7],
         "middle": [],
-        "late": [4, 8]
+        "late": [4, 8]  
       }
     }
   },
   {
     "id": "mermaids", "key": 3, "name": "Mermaids",
+    "src": "./images/MermaidsIcon.gif",
     "bonusCards": {
       "prefer": [1,3,4,10],
       "dislike": [6,9],
@@ -47,6 +50,7 @@
   },
   {
     "id": "swarmlings", "key": 4, "name": "Swarmlings",
+    "src": "./images/SwarmlingsIcon.gif",
     "bonusCards": {
       "prefer": [1,6,8,9],
       "dislike": [],
@@ -62,6 +66,7 @@
   },
   {
     "id": "auren", "key": 5, "name": "Auren",
+    "src": "./images/AurenIcon.gif",
     "bonusCards": {
       "prefer": [1,3,4,6,7,9],
       "dislike": [],
@@ -77,6 +82,7 @@
   },
   {
     "id": "witches", "key": 6, "name": "Witches",
+    "src": "./images/WitchesIcon.gif",
     "bonusCards": {
       "prefer": [1,3,5,7,9],
       "dislike": [],
@@ -92,6 +98,7 @@
   },
   {
     "id": "dwarfs", "key": 7, "name": "Dwarfs",
+    "src": "./images/DwarvesIcon.gif",
     "bonusCards": {
       "prefer": [1,5,6],
       "dislike": [3, 10],
@@ -107,6 +114,7 @@
   },
   {
     "id": "engineers", "key": 8, "name": "Engineers",
+    "src": "./images/EngineersIcon.gif",
     "bonusCards": {
       "prefer": [1,5,9],
       "dislike": [],
@@ -122,6 +130,7 @@
   },
   {
     "id": "chaos_magicians", "key": 9, "name": "Chaos Magicians",
+    "src": "./images/ChaosMagiciansIcon.gif",
     "bonusCards": {
       "prefer": [1,9],
       "dislike": [],
@@ -137,6 +146,7 @@
   },
   {
     "id": "giants", "key": 10, "name": "Giants",
+    "src": "./images/GiantsIcon.gif",
     "bonusCards": {
       "prefer": [2,5,9],
       "dislike": [1,10],
@@ -152,6 +162,7 @@
   },
   {
     "id": "fakirs", "key": 11, "name": "Fakirs",
+    "src": "./images/FakirsIcon.gif",
     "bonusCards": {
       "prefer": [1,5,9],
       "dislike": [3,10],
@@ -168,6 +179,7 @@
   },
   {
     "id": "nomads", "key": 12, "name": "Nomads",
+    "src": "./images/NomadsIcon.gif",
     "bonusCards": {
       "prefer": [1,3,5,7,9],
       "dislike": [],
@@ -183,6 +195,7 @@
   },
   {
     "id": "cultists", "key": 13, "name": "Cultists",
+    "src": "./images/CultistsIcon.gif",
     "bonusCards": {
       "prefer": [1,2,6],
       "dislike": [],
@@ -198,6 +211,7 @@
   },
   {
     "id": "halflings", "key": 14, "name": "Halflings",
+    "src": "./images/HalflingsIcon.gif",
     "bonusCards": {
       "prefer": [1,5,6],
       "dislike": [9,10],

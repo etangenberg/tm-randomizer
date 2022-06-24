@@ -1,10 +1,10 @@
 [
-  { "id": "Spade-2VP_1E=C", "key": 1 },
-  { "id": "Town-5VP_4E=Spade", "key": 2 },
-  { "id": "D-2VP_4W=P", "key": 3 },
-  { "id": "TP-3VP_4W=Spade", "key": 4 },
-  { "id": "SH/SA-5VP_2F=W", "key": 5 },
-  { "id": "D-2VP_4F=4PW", "key": 6 },
-  { "id": "SH/SA-5VP_2A=W", "key": 7 },
-  { "id": "TP-3VP_4A=Spade", "key": 8 }
+  { "id": "Spade-2VP_1E=C", "key": 1, "src": "./images/scoringSpade.gif" },
+  { "id": "Town-5VP_4E=Spade", "key": 2, "src": "./images/scoringCity.gif" },
+  { "id": "D-2VP_4W=P", "key": 3, "src": "./images/scoringB1Water.gif" },
+  { "id": "TP-3VP_4W=Spade", "key": 4, "src": "./images/scoringB2Water.gif" },
+  { "id": "SH/SA-5VP_2F=W", "key": 5, "src": "./images/scoringB3Fire.gif" },
+  { "id": "D-2VP_4F=4PW", "key": 6, "src": "./images/scoringB1Fire.gif" },
+  { "id": "SH/SA-5VP_2A=W", "key": 7, "src": "./images/scoringB3Air.gif" },
+  { "id": "TP-3VP_4A=Spade", "key": 8, "src": "./images/scoringB2Air.gif" }
 ]

@@ -1,33 +1,33 @@
 
 [
   {
-    "id": "Spade_2C", "key": 1
+    "id": "Spade_2C", "key": 1, "src": "./images/bonusSpade.png"
   },
   {
-    "id": "Cult_4C", "key": 2
+    "id": "Cult_4C", "key": 2, "src": "./images/bonusCult.png"
   },
   {
-    "id": "Ship_3PW", "key": 3
+    "id": "Ship_3PW", "key": 3, "src": "./images/bonusPowerShip.png"
   },
   {
-    "id": "6C", "key": 4
+    "id": "6C", "key": 4, "src": "./images/bonusCoins.png"
   },
   {
-    "id": "3PW_1W", "key": 5
+    "id": "3PW_1W", "key": 5, "src": "./images/bonusPowerWorker.png"
   },
   {
-    "id": "1P", "key": 6
+    "id": "1P", "key": 6, "src": "./images/bonusPriest.png"
   },
   {
-    "id": "Pass-D-2VP_2C", "key": 7
+    "id": "Pass-D-2VP_2C", "key": 7, "src": "./images/bonusOnPassB1.png"
   },
   {
-    "id": "Pass-TP-3VP_1W", "key": 8
+    "id": "Pass-TP-3VP_1W", "key": 8, "src": "./images/bonusOnPassB2.png"
   },
   {
-    "id": "Pass-SH/SA-5VP_2W", "key": 9
+    "id": "Pass-SH/SA-5VP_2W", "key": 9, "src": "./images/bonusOnPassB3.png"
   },
   {
-    "id": "Pass-Ship-3VP_3PW", "key": 10
+    "id": "Pass-Ship-3VP_3PW", "key": 10, "src": "./images/bonusOnPassShip.png"
   }
 ]

@@ -1,23 +1,30 @@
 import React from 'react';
-import './App.css';
+import {
+  Routes,
+  Route,
+  // Outlet,
+  // Link,
+  // useSearchParams,
+  // useParams,
+} from "react-router-dom";
 
-import generateCards from './bonus-cards/generate-bonus-cards';
-import generateTiles from './round-tiles/generate-round-tiles';
-import RoundTiles from './round-tiles/component/round-tiles';
-import BonusCards from './bonus-cards/bonus-cards';
-import FactionScoring from './scoring/faction-scoring';
+// import generateCards from './bonus-cards/generate-bonus-cards';
+// import generateTiles from './round-tiles/generate-round-tiles';
+
+import './App.css';
+import Generated from './generated';
+import Select from './select';
 
 const App = ()  => {
-  const playerCount = 2;
-  const usedRoundTiles = generateTiles(6); 
-  const usedBonusCards = generateCards(playerCount);
+  // const playerCount = 2;
+  // const roundTiles = generateTiles(6); 
+  // const bonusCards = generateCards(playerCount);
 
   return (
-    <div>
-      <RoundTiles roundTiles={usedRoundTiles} />
-      <BonusCards bonusCards={usedBonusCards}/>
-      <FactionScoring bonusCards={usedBonusCards} roundTiles={usedRoundTiles} />
-    </div>
+    <Routes>
+        <Route path=":setup" element={<Generated />} />
+        <Route path="/" element={<Select />} />
+    </Routes>
   );
 }
 

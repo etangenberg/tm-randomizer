@@ -12,7 +12,7 @@ const Generated = () => {
   const [showFactionsScore, setFactionScore] = useState(false);
   const { setup: paramString } = useParams(); 
   const navigate = useNavigate();
-  const setup = paramString.split('=').at(1);
+  const setup = paramString && paramString.split('=').at(1);
   const {
     roundTileKeys,
     bonusCardKeys,
@@ -22,6 +22,16 @@ const Generated = () => {
   const roundTiles = collectRoundTilesByKeys(roundTileKeys);
   const bonusCards = collectBonusCardsByKeys(bonusCardKeys);
   
+  const filledSetup = roundTiles.length && bonusCards.length;
+  if (!filledSetup) {
+    return (
+      <div className="playerCountSelect">
+        <div className="invalid-setup-message">No Valid setup found</div>
+        <button className="select" onClick={() => navigate('/')}>Reset</button>
+      </div>
+    );
+  }
+
   return (
     <div>
       <div className="playerCountSelect">

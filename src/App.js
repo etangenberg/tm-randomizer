@@ -12,6 +12,7 @@ import {
 // import generateTiles from './round-tiles/generate-round-tiles';
 
 import './App.css';
+import Board from './board/board';
 import Generated from './generated';
 import Select from './select';
 
@@ -22,6 +23,7 @@ const App = ()  => {
 
   return (
     <Routes>
+        <Route path="/board" element={<Board />} />
         <Route path=":setup" element={<Generated />} />
         <Route path="/" element={<Select />} />
     </Routes>

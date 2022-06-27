@@ -1,4 +1,5 @@
-import setupMap from './loon-lakes.json';
+// import setupMap from './loon-lakes.json';
+import setupMap from './base-map.json';
 import "./board.css";
 
 const abbr = {
@@ -23,16 +24,28 @@ const terrains = [
 ];
 
 const Board = () => {
+  const startIndent = (setupMap.length < 1) || (setupMap[0].length < setupMap[1].length);
+  const row0 = startIndent ? 100 : 49;  
+  const row1 = startIndent ? 50 : 101;  
   const scale = 0.6;
+  const nextHex = 104;
+  const nextRow = 79;
   const v = (v, offset = 0) => `${(v + offset) * scale}`;
   const p = (x, y, dx, dy) => `${v(x, dx)} ${v(y, dy)}`; 
 
-  const defHex = [[50, 0], [100, 25], [100, 75], [50, 100], [0, 75], [0, 25]];
+  const defHex = [
+    [50, 0],
+    [100, 25],
+    [100, 75],
+    [50, 100],
+    [0, 75],
+    [0, 25],
+  ];
   const hex = (dx, dy) => defHex.map(([x,y]) => p(x, y, dx, dy)).join(',') ;
 
   const polygon = ([r,c, type], [dx, dy], className) => (
     <polygon key={`${r}-${c}`} points={hex(dx, dy)} 
-      className="board-hex"
+      className={["board-hex", abbr[type]].join(' ')}
       strokeWidth="1"
       fill={`url(#${abbr[type]})`}
     />
@@ -65,7 +78,12 @@ const terrainDef = (id) => (
         <defs>
           {terrains.map(terrainDef)}
         </defs>
-        {setupMap.map((row, ri) => row.map((type, colindex) => polygon([ri, colindex, type], [colindex * 100 + (ri % 2 ? 50 : 100), ri * 75])))}
+        {setupMap.map((row, ri) => row.map((type, colindex) => (
+          polygon(
+            [ri, colindex, type],
+            [colindex * nextHex + (ri % 2 ? row1 : row0), ri * nextRow],
+          ))),
+        )}
       </svg>
     </div>
   );

@@ -1,3 +1,13 @@
 .board-hex {
-  stroke: white;
+  stroke: rgb(102, 61, 0);
+  stroke-width: 1px;
+}
+
+.river {
+  stroke-width: 1px;
+  stroke: rgb(54, 98, 122);
+  z-index: 2000;
+}
+.game-board{
+  background-color: rgb(162, 116, 57);
 }

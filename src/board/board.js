@@ -33,6 +33,16 @@ const Board = () => {
   const v = (v, offset = 0) => `${(v + offset) * scale}`;
   const p = (x, y, dx, dy) => `${v(x, dx)} ${v(y, dy)}`; 
 
+
+  const candidate = [
+    [[1,1], [5,7], [6,3]],
+    [[3,1], [7,5], [3,6]],
+    [[1,3], [6,6], [4,3]],
+  ];
+
+  const pick = ([x,y], s) => <circle cx={v(x+50)} cy={v(y+50)} r={s*10*scale}/>
+  const getCandidate = ([x,y],can) => (candidate[can].find(([cx, cy]) => (cx === x) && (cy === y)));  
+
   const defHex = [
     [50, 0],
     [100, 25],
@@ -78,12 +88,19 @@ const terrainDef = (id) => (
         <defs>
           {terrains.map(terrainDef)}
         </defs>
-        {setupMap.map((row, ri) => row.map((type, colindex) => (
-          polygon(
-            [ri, colindex, type],
-            [colindex * nextHex + (ri % 2 ? row1 : row0), ri * nextRow],
-          ))),
-        )}
+        {setupMap.map((row, ri) => row.map((type, colindex) => {
+          const pos = [colindex * nextHex + (ri % 2 ? row1 : row0), ri * nextRow];
+          return [
+            polygon(
+              [ri, colindex, type],
+              pos
+            ),
+            getCandidate([ri, colindex], 0) && pick(pos,3),
+            getCandidate([ri, colindex],1) && pick(pos,2),
+            getCandidate([ri, colindex],2) && pick(pos,1),
+
+          ].filter(Boolean)
+        }))}
       </svg>
     </div>
   );

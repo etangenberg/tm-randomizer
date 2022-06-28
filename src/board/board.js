@@ -1,5 +1,9 @@
-// import setupMap from './loon-lakes.json';
+import PropTypes from 'prop-types';
+import { useParams } from "react-router-dom";
+
 import setupMap from './base-map.json';
+import factions from '../data/factions.json';
+
 import "./board.css";
 
 const abbr = {
@@ -23,8 +27,10 @@ const terrains = [
   'river'
 ];
 
-const Board = () => {
-  const startIndent = (setupMap.length < 1) || (setupMap[0].length < setupMap[1].length);
+const Board = ({ map }) => {
+  const { faction } = useParams(); 
+  const factionData = factions.find((f) => f.id === faction);
+  const startIndent = (map.length < 1) || (map[0].length < map[1].length);
   const row0 = startIndent ? 100 : 50;  
   const row1 = startIndent ? 50 : 100;  
   const scale = 0.6;
@@ -33,12 +39,11 @@ const Board = () => {
   const v = (v, offset = 0) => `${(v + offset) * scale}`;
   const p = (x, y, dx, dy) => `${v(x, dx)} ${v(y, dy)}`; 
 
-
-  const candidate = [
-    [[1,1], [5,7], [6,3]],
-    [[3,1], [7,5], [3,6]],
-    [[1,3], [6,6], [4,3]],
-  ];
+  // const candidate = [
+  //   [[1,1], [5,7], [6,3]],
+  //   [[3,1], [7,5], [3,6]],
+  //   [[1,3], [6,6], [4,3]],
+  // ];
 
   const priorityClass = ['prior4', 'prior3', 'prior2', 'prior1'];
   const pick = ([c, r], s) => {
@@ -86,7 +91,7 @@ const terrainDef = (id) => (
       height="1.2"
       width="1.2"
       preserveAspectRatio="none"
-      xlinkHref={`images/terrain/terrain${upperCase(id)}.png`}
+      xlinkHref={`../images/terrain/terrain${upperCase(id)}.png`}
     />
   </pattern>
 );
@@ -101,8 +106,9 @@ const terrainDef = (id) => (
         )
         : null))));
 
-  const renderStartPositions = (candidate) => (
-    candidate.map((prio, index) => prio.map((pos) => pick(pos, 3 - index) )));
+  const renderStartPositions = (startPositions = []) => (
+    startPositions
+      .map((prio, index) => prio.map((pos) => pick(pos, 3 - index) )));
 
   return (
     <div className="game-board">
@@ -111,12 +117,21 @@ const terrainDef = (id) => (
         <defs>
           {terrains.map(terrainDef)}
         </defs>
-        {renderHexes(setupMap, Object.keys(abbr).filter(t => (t !== 'r')) )}
-        {renderHexes(setupMap, ['r'])}
-        {renderStartPositions(candidate)}
+        {renderHexes(map, Object.keys(abbr).filter(t => (t !== 'r')) )}
+        {renderHexes(map, ['r'])}
+        {renderStartPositions(factionData.startPositions)}
       </svg>
     </div>
   );
+};
+
+Board.propTypes = {
+  map: PropTypes.array,
+  faction: PropTypes.string,
+};
+
+Board.defaultProps = {
+  map: setupMap,
 };
 
 export default Board;

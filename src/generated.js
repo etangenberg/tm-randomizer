@@ -34,6 +34,9 @@ const Generated = () => {
 
   return (
     <div>
+      <a href='https://boardgamegeek.com/file/download_redirect/19d79ac39ef3f61b44df7eae5ba04b089f62116038be06cd/Terra+Mystica+Strategy+Reference+Sheet+v0_5.pdf'>
+        Used ref
+      </a>
       <div className="playerCountSelect">
         <button className="select" onClick={() => navigate(`/setup=${createSetup(playerCount)}`)}>Refresh</button>
         <button className="select" onClick={() => navigate('/')}>Reset</button>

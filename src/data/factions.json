@@ -13,7 +13,10 @@
         "middle": [1],
         "late": [2, 4, 8]
       }
-    }
+    },
+    "startPositions": [
+      [[11, 4], [10, 6]], [[4, 4], [11, 4]], [[4,1], [10,6]]
+    ]
   },
   {
     "id": "darklings", "key": 2, "name": "Darklings",

@@ -1,13 +1,32 @@
 .board-hex {
-  stroke: rgb(102, 61, 0);
-  stroke-width: 1px;
+  stroke: rgb(239, 213, 152);
+  stroke-width: 2px;
 }
 
 .river {
-  stroke-width: 1px;
+  stroke-width: 0;
   stroke: rgb(54, 98, 122);
   z-index: 2000;
 }
 .game-board{
   background-color: rgb(162, 116, 57);
+}
+
+.prior1 {
+  fill: rgba(0, 128, 0, 0.39);
+  stroke: rgba(2, 80, 2, 0.63);
+  stroke-width: 4px;
+}
+
+
+.prior2 {
+  fill: rgba(255, 255, 0, 0.315);
+  stroke: rgb(218, 218, 0);
+  stroke-width: 3px;
+}
+
+.prior3 {
+  fill: rgba(255, 166, 0, 0.351);
+  stroke: orangered;
+  stroke-width: 2px;
 }

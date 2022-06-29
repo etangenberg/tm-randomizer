@@ -6,6 +6,7 @@ import factions from '../data/factions.json';
 
 import "./board.css";
 
+const url = 'https://boardgamegeek.com/file/download_redirect/84025645d2087ac3fee26f7156e280e8be101ed15c69ab2f/Terra+Mystica+Strategy+Reference+Sheet+v0_5.pdf';
 const abbr = {
   d: 'desert',
   f: 'forest',
@@ -109,9 +110,16 @@ const terrainDef = (id) => (
   const renderStartPositions = (startPositions = []) => (
     startPositions
       .map((prio, index) => prio.map((pos) => pick(pos, 3 - index) )));
+  const renderIndices = () => (
+    map
+      .map((row, ri) => row.map((pos, ci) => {
+        const [x, y] = getPos(ci, ri);
+        return <text x={v(x + 3)} y={v(y + 50)} class="index">{`[${ci}, ${ri}]`}</text>
+  })));
 
   return (
     <div className="game-board">
+      <a href={url}>Strategy file</a>
       <div className="game-board-title">Basic board</div>
       <svg width="100%" height="800px" version="1.1" xmlnsXlink="http://www.w3.org/1999/xlink" >
         <defs>
@@ -120,6 +128,7 @@ const terrainDef = (id) => (
         {renderHexes(map, Object.keys(abbr).filter(t => (t !== 'r')) )}
         {renderHexes(map, ['r'])}
         {renderStartPositions(factionData.startPositions)}
+        {renderIndices()}
       </svg>
     </div>
   );

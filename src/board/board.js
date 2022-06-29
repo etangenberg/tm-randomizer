@@ -53,7 +53,7 @@ const Board = ({ map }) => {
         cx={v(x + 50)}
         cy={v(y + 50)}
         r={s * 10 * scale}
-        className={priorityClass[s]}
+        className={[priorityClass[s], 'startPos'].join(' ')}
       />
     )
   };

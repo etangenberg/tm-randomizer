@@ -8,8 +8,13 @@
   stroke: rgb(54, 98, 122);
   z-index: 2000;
 }
+
 .game-board{
   /* background-color: rgb(162, 116, 57); */
+}
+
+.startPos {
+  filter: drop-shadow(0px 0px 3px rgb(64, 118, 64));
 }
 
 .prior1 {

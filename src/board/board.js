@@ -1,8 +1,9 @@
 import PropTypes from 'prop-types';
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 import setupMap from './base-map.json';
 import factions from '../data/factions.json';
+import strategy from '../data/strategy.json';
 
 import "./board.css";
 
@@ -29,22 +30,19 @@ const terrains = [
 ];
 
 const Board = ({ map }) => {
-  const { faction } = useParams(); 
+  const { faction } = useParams();
+  const navigate = useNavigate();
   const factionData = factions.find((f) => f.id === faction);
   const startIndent = (map.length < 1) || (map[0].length < map[1].length);
-  const row0 = startIndent ? 100 : 50;  
-  const row1 = startIndent ? 50 : 100;  
-  const scale = 0.6;
+  const colCount = Math.max(map[0].length, map[1].length);
+  const row0 = startIndent ? 50 : 0;  
+  const row1 = startIndent ? 0 : 50;  
+  const scale = 0.4;
   const nextHex = 100;
   const nextRow = 75;
   const v = (v, offset = 0) => `${(v + offset) * scale}`;
   const p = (x, y, dx, dy) => `${v(x, dx)} ${v(y, dy)}`; 
-
-  // const candidate = [
-  //   [[1,1], [5,7], [6,3]],
-  //   [[3,1], [7,5], [3,6]],
-  //   [[1,3], [6,6], [4,3]],
-  // ];
+  const indices = false;
 
   const priorityClass = ['prior4', 'prior3', 'prior2', 'prior1'];
   const pick = ([c, r], s) => {
@@ -117,19 +115,29 @@ const terrainDef = (id) => (
         return <text x={v(x + 3)} y={v(y + 50)} class="index">{`[${ci}, ${ri}]`}</text>
   })));
 
+  const height = (map.length*nextRow + 25) * scale;
+  const width = (colCount * 100) * scale;
+
   return (
     <div className="game-board">
-      <a href={url}>Strategy file</a>
-      <div className="game-board-title">Basic board</div>
-      <svg width="100%" height="800px" version="1.1" xmlnsXlink="http://www.w3.org/1999/xlink" >
-        <defs>
-          {terrains.map(terrainDef)}
-        </defs>
-        {renderHexes(map, Object.keys(abbr).filter(t => (t !== 'r')) )}
-        {renderHexes(map, ['r'])}
-        {renderStartPositions(factionData.startPositions)}
-        {renderIndices()}
-      </svg>
+      <div className="navbar">
+        <button onClick={() => navigate(-1)}>back</button>
+        <a className="link" href={url}>Strategy file</a>
+      </div>
+      <div className="game-board-title">
+        <svg viewport="" width={`${width}px`} height={`${height}px`} version="1.1" xmlnsXlink="http://www.w3.org/1999/xlink" >
+          <defs>
+            {terrains.map(terrainDef)}
+          </defs>
+          {renderHexes(map, Object.keys(abbr).filter(t => (t !== 'r')) )}
+          {renderHexes(map, ['r'])}
+          {renderStartPositions(factionData.startPositions)}
+          {indices ? renderIndices() : null}
+        </svg>
+      </div>
+      <div className='strategy'>
+        {strategy[faction].join('\n')}
+      </div>
     </div>
   );
 };

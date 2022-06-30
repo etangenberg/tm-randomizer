@@ -11,10 +11,11 @@
 
 .game-board{
   /* background-color: rgb(162, 116, 57); */
+  padding: 1em;
 }
 
 .startPos {
-  filter: drop-shadow(0px 0px 3px rgb(64, 118, 64));
+  filter: drop-shadow(0px 0px 4px rgb(92, 165, 92));
 }
 
 .prior1 {
@@ -34,4 +35,7 @@
   fill: rgba(255, 166, 0, 0.351);
   stroke: orangered;
   stroke-width: 2px;
+}
+.link {
+  font-size: 8px;
 }

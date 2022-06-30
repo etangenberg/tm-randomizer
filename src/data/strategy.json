@@ -1,0 +1,119 @@
+
+{
+  "alchemists": [
+    "Get 2 extra workers through bonus card and build Stronghold in round  1.",
+    "Make sure you have a neighbour to start with.",
+    "Use double spade power action after Stronghold build to also build a Dwelling.",
+    "Develop spades early for easy power.",
+    "Develop ship level and try to build 3 towns with the -1 town-size favor tile.",
+    "Trading Post 3 and 4 give extra income, although it can be a choice to ignore Trading Posts and use the faction's special ability as a money supply.",
+    "Exploit Spade 2VP round scoring tile, especially when available in round 4"
+  ],
+  "darklings": [
+    "Get 1 worker as extra income with bonus cards or power action, so you can build 3 or 4 Dwellings or even better a Temple and one or two Dwellings.",
+    "Might want to get the +3 coins income favor tile.",
+    "Sanctuary can be nice early on in the game when you can receive Round Scoring and Bonus Card victory points while also increasing your Priest income, but Stronghold can be build later or not at all.",
+    "Move most Priest to cult tracks in last round(s).",
+    "Shipping (for network) has lower priority.",
+    "Try to get at least 2 or 3 Priest income each turn and maximize spade bonus (especially when available in Round 4)."
+  ],
+  "mermaids": [
+    "Try to build 3 towns, all Dwellings and all Trading posts and at least two Temples.",
+    "Stronghold and Sanctuary are nice, but mainly when the SH/SA bonus is in play.",
+    "Build a Temple and a few strategic Dwellings (when possible 2 or 3) in round 1.",
+    "This can be done through the +1 ship bonus card and/or the Priest power action followed by advance shipping and/or through the spade power actions.",
+    "Make sure to start the second round with enough money.",
+    "Plan for the Town round scoring tile and use your faction's special ability to connect all in the same round."
+  ],
+  "swarmlings": [
+    "Try to build 3 Dwellings and a Trading Post in round one or alternatively build a Stronghold and ideally a temple instead.",
+    "Advance on spades and build one dwelling and upgrade to a trading post every round.",
+    "Try to stay at 1 dwelling and 2 trading posts all the time for maximizing income, while also getting the right dwelling and trading post related Favor Tiles.",
+    "Don't burn too much power early in the game.",
+    "The Priest can be a good alternative bonus card for the first round, since it will get to you to Cult level 4 on any track."
+  ],
+  "auren": [
+    "Build 4 Dwellings or alternatively a Stronghold in round one.",
+    "Make sure you have enough coins (preferably trough a Power action or Round Scoring Tile) for the next rounds.",
+    "Don't delay building a temple early on.",
+    "Score a lot of victory points through top positions in the cult tracks and scoring tiles.",
+    "Make sure to maximize the cult bonus from pass Bonus Cards.",
+    "The 'Ship +3PW' round bonus card can help to expand quickly in round one.",
+    "Alternatively a Pries in combination with any Air (grey) related round scoring tile can give a great start."
+  ],
+  "witches": [
+    "Base your opening on the Round Scoring Tile pass bonuses available in round 1 and 2.",
+    "Build 4 or 5 dwellings (using spade and ship) ideally together with a Temple.",
+    "Also a Stronghold can be a good opening.",
+    "Use ship to expand quickly to the available green terrains near the river.",
+    "Developing spades in round 3 and 4 can be very powerful, especially when the Spade Round Scoring TIle is in round 4.",
+    "Use free Witchride strategically before upgrading and developing your towns.",
+    "Develop at least 2, preferably 3 towns using the Town-Size -1 favour tile."
+  ],
+  "dwarfs": [
+    "Build upwards on right side of the board.",
+    "Use rounds four to six to tunnel a lot (ideally after you have build a Stronghold).",
+    "Build a temple and a dwelling through power action spade or spade bonus card in round one.",
+    "Build Trading Post 1 in round two since it gives more income.",
+    "Maximize points through Round Scoring Tiles and Pass Bonus cards.",
+    "Must have many workers for tunneling, especially in the second half of the game at the moment that the Dwelling build bonus is present."
+  ],
+  "engineers": [
+    "Build at least one temple and a few dwellings or two temples in round 1.",
+    "Ensure to quickly build your second temple for power income or alternatively gain power through bonus cards.",
+    "At the beginning of the second round, make sure you have enough money (burn power, use bonus cards or be the 1st to pass;",
+    "Spade 2VP Round Scoring Tile in round 1 is very strong for this purpose).",
+    "Build bridges in first 3 or 4 rounds and use spade bonus card and power action spade to build dwellings.",
+    "Build Stronghold latest in round 4 to maximize Victory Points."
+  ],
+  "chaosMagicians": [
+    "Make sure that you pick a location where you can build at least one dwelling in round 1 or 2.",
+    "Ideally build Sanctuary (with power action or bonus card) in round1 and get most of the income favor tiles first.",
+    "Alternatively pick spade bonus card to build another dwelling in round one.",
+    "Upgrade shipping in order to develop a second town but also to connect the many red terrains near the river.",
+    "Stronghold is not necessary.",
+    "A late town bonus is strong since it takes time to grow and expand.",
+    "Pick the Favor TIles not only to secure your income but also to maximize Round Scoring Tile cult track bonuses."
+  ],
+  "giants": [
+    "Build the Stronghold in round one in order to expand easily in the subsequent rounds.",
+    "Ideally use the double spade power action in turn one or early in round two and build a temple in round two.",
+    "Make sure to start round two with enough money.",
+    "Timing is essential in order to secure the double spade power action as much as possible.",
+    "You need to get the power circulation going.",
+    "Use the faction's special ability or the double spade power action to strategically take positions and block others."
+  ],
+  "fakirs": [
+    "Ideally use the spade bonus card and try to build a temple and two dwellings in round 1.",
+    "Temple is needed to secure a Priest income.",
+    "When starting in F3, and after expanding to G2, one can use the Fakir's carpet to also build in I7 in the first round (A5, B2, D3 is another option; or F3, E6, E8).",
+    "Build a Sanctuary or another temple in round 2.",
+    "Stronghold is not necessary unless there are pass or bonus victory points to be gained.",
+    "Use faction's flying power to gain points and build a lot of Dwellings in the rounds they score most victory points.",
+    "Focus on cult track later in the game."
+  ],
+  "nomads": [
+    "Build a Stronghold in round 1 or 2 (depending on SH/SA round bonus) or alternatively a Temple and/or 2 Trading Posts.",
+    "Compensate less base income through bonus cards or by building a few trading posts.",
+    "Focus on building a Temple in either round 1 or 2 to get the Dwelling 2VP favor tile.",
+    "Get -1 town-size favor tile and try to build three towns.",
+    "Use the sandstorm special ability to strategically block others.",
+    "Try to maximize expansion to secure the greatest connected network."
+  ],
+  "cultists": [
+    "Make sure you have neighbours, so you progress fast on the cult track.",
+    "Develop temples early on in the game in order to get a Priest as income and to maximize the cult track related scoring tiles pass bonuses.",
+    "Build a stronghold in one of the last rounds for 7 victory points.",
+    "Focus on upgrading buildings and upgrade shipping in the end to connect them.",
+    "Upgrades spades in the last rounds when the cult tracks are full or don't give any additonal victory points.",
+    "Be smart about what building to upgrade, and try to maximize the chance that neighbours take power."
+  ],
+  "halflings": [
+    "Use spade a lot.",
+    "Pick Spade2V/2C or 3PW/1W bonus card and build a few dwellings in turn one by transforming G5 or E10.",
+    "Build a temple in round one, so the priests can be used to upgrade spades.",
+    "Alternatively pick the Priest bonus card in round one to developing spades or transform & build another dwelling.",
+    "Building a Stronghold and Sanctuary is not required, although 3 spades at once with the Stronghold later in the game is nice when you have dwellings left.",
+    "Exploit Spade 2VP round scoring tile, ideally when available in round 4."
+  ]
+}

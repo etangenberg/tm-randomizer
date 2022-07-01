@@ -7,10 +7,11 @@ import decodeSetup from "./decode-setup";
 import collectRoundTilesByKeys from "./round-tiles/collect-round-tiles-by-keys";
 import RoundTiles from "./round-tiles/component/round-tiles";
 import FactionScoring from "./scoring/faction-scoring";
+import NavBar from "./common/nav-bar";
 
 const Generated = () => {
   const [showFactionsScore, setFactionScore] = useState(false);
-  const { setup: paramString } = useParams(); 
+  const { setup: paramString } = useParams();
   const navigate = useNavigate();
   const setup = paramString && paramString.split('=').at(1);
   const {
@@ -21,7 +22,7 @@ const Generated = () => {
 
   const roundTiles = collectRoundTilesByKeys(roundTileKeys);
   const bonusCards = collectBonusCardsByKeys(bonusCardKeys);
-  
+
   const filledSetup = roundTiles.length && bonusCards.length;
   if (!filledSetup) {
     return (
@@ -34,14 +35,12 @@ const Generated = () => {
 
   const onClick = (id) => navigate(`/board/${id}`);
   return (
-    <div>
-      <a href='https://boardgamegeek.com/file/download_redirect/19d79ac39ef3f61b44df7eae5ba04b089f62116038be06cd/Terra+Mystica+Strategy+Reference+Sheet+v0_5.pdf'>
-        Used ref
-      </a>
-      <div className="playerCountSelect">
+    <div className="page">
+      <NavBar>
         <button className="select" onClick={() => navigate(`/setup=${createSetup(playerCount)}`)}>Refresh</button>
         <button className="select" onClick={() => navigate('/')}>Reset</button>
-      </div>
+      </NavBar>
+
       <RoundTiles roundTiles={roundTiles} />
       <BonusCards bonusCards={bonusCards}/>
       <button className="select" onClick={() => setFactionScore(!showFactionsScore)}>
@@ -50,7 +49,7 @@ const Generated = () => {
       {showFactionsScore
         ? <FactionScoring bonusCards={bonusCards} roundTiles={roundTiles} onClick={onClick} />
         : null}
-      </div>  
+    </div>
   );
 };
 

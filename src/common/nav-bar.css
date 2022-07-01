@@ -1,0 +1,16 @@
+.link {
+  font-size: 10px;
+}
+.nav-bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 2px;
+  height: 2rem;
+  margin-bottom: 1rem;
+}
+
+.nav-elements > * {
+  height: 100%;
+  margin-right: 2px;
+}

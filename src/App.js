@@ -2,14 +2,7 @@ import React from 'react';
 import {
   Routes,
   Route,
-  // Outlet,
-  // Link,
-  // useSearchParams,
-  // useParams,
 } from "react-router-dom";
-
-// import generateCards from './bonus-cards/generate-bonus-cards';
-// import generateTiles from './round-tiles/generate-round-tiles';
 
 import './App.css';
 import Board from './board/board';

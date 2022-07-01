@@ -1,13 +1,14 @@
 import PropTypes from 'prop-types';
 import { useNavigate, useParams } from "react-router-dom";
 
+import NavBar from '../common/nav-bar';
+
 import setupMap from './base-map.json';
 import factions from '../data/factions.json';
 import strategy from '../data/strategy.json';
 
 import "./board.css";
 
-const url = 'https://boardgamegeek.com/filepage/104541/terra-mystica-strategy-reference-guide';
 const abbr = {
   d: 'desert',
   f: 'forest',
@@ -35,18 +36,18 @@ const Board = ({ map }) => {
   const factionData = factions.find((f) => f.id === faction);
   const startIndent = (map.length < 1) || (map[0].length < map[1].length);
   const colCount = Math.max(map[0].length, map[1].length);
-  const row0 = startIndent ? 50 : 0;  
-  const row1 = startIndent ? 0 : 50;  
+  const row0 = startIndent ? 50 : 0;
+  const row1 = startIndent ? 0 : 50;
   const scale = 0.4;
   const nextHex = 100;
   const nextRow = 75;
   const v = (v, offset = 0) => `${(v + offset) * scale}`;
-  const p = (x, y, dx, dy) => `${v(x, dx)} ${v(y, dy)}`; 
+  const p = (x, y, dx, dy) => `${v(x, dx)} ${v(y, dy)}`;
   const indices = false;
 
   const priorityClass = ['prior4', 'prior3', 'prior2', 'prior1'];
   const pick = ([c, r], s) => {
-    const [x,y] = getPos(c,r); 
+    const [x,y] = getPos(c,r);
     return (
       <circle
         cx={v(x + 50)}
@@ -68,7 +69,7 @@ const Board = ({ map }) => {
   const hex = (dx, dy) => defHex.map(([x,y]) => p(x, y, dx, dy)).join(',') ;
 
   const polygon = ([r,c, type], [dx, dy], className) => (
-    <polygon key={`${r}-${c}`} points={hex(dx, dy)} 
+    <polygon key={`${r}-${c}`} points={hex(dx, dy)}
       className={["board-hex", abbr[type]].join(' ')}
       strokeWidth="1"
       fill={`url(#${abbr[type]})`}
@@ -98,7 +99,7 @@ const terrainDef = (id) => (
   const getPos = (xi, yi) => [xi * nextHex + (yi % 2 ? row1 : row0), yi * nextRow];
   const renderHexes = (map, types) => (
     map.map((row, ri) => row.map((type, ci) => (
-      (!types || !types.length || !types.includes(type)) 
+      (!types || !types.length || !types.includes(type))
         ? polygon(
           [ri, ci, type],
           getPos(ci, ri)
@@ -119,11 +120,10 @@ const terrainDef = (id) => (
   const width = (colCount * 100) * scale;
 
   return (
-    <div className="game-board">
-      <div className="nav-bar">
+    <div className="page">
+      <NavBar>
         <button onClick={() => navigate(-1)}>back</button>
-        <a className="link" href={url}>Strategy file</a>
-      </div>
+      </NavBar>
       <div className="faction">
         <img src={`../${factionData.src}`} alt={faction} className="round-tile-image" />
         <div className='faction-name'>{factionData.name}</div>

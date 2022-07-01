@@ -6,7 +6,7 @@ const TileElement = ({ className, src, id, onClick }) => (
   onClick={onClick}
   className={className}
 >
-  <img src={src} alt={id} className="round-tile-image" />
+  <img src={src} alt={id} className="img" />
 </div>);
 
 TileElement.propTypes = {

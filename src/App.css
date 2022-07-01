@@ -16,15 +16,22 @@ body {
   flex-wrap: wrap;;
 }
 
+.img {
+  width: 120px;
+}
+
+.round-tile > img {
+  width:150px;
+}
+
 .bonus-cards {
   display: flex;
   flex-wrap: wrap;;
 }
 
 .bonus-card {
-  width: 100px;
+  width: 60px;
 }
-
 
 .bonus-card > img {
   width: 100%;

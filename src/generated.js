@@ -7,10 +7,11 @@ import decodeSetup from "./decode-setup";
 import collectRoundTilesByKeys from "./round-tiles/collect-round-tiles-by-keys";
 import RoundTiles from "./round-tiles/component/round-tiles";
 import FactionScoring from "./scoring/faction-scoring";
+import NavBar from "./common/nav-bar";
 
 const Generated = () => {
   const [showFactionsScore, setFactionScore] = useState(false);
-  const { setup: paramString } = useParams(); 
+  const { setup: paramString } = useParams();
   const navigate = useNavigate();
   const setup = paramString && paramString.split('=').at(1);
   const {
@@ -21,7 +22,7 @@ const Generated = () => {
 
   const roundTiles = collectRoundTilesByKeys(roundTileKeys);
   const bonusCards = collectBonusCardsByKeys(bonusCardKeys);
-  
+
   const filledSetup = roundTiles.length && bonusCards.length;
   if (!filledSetup) {
     return (
@@ -32,21 +33,23 @@ const Generated = () => {
     );
   }
 
+  const onClick = (id) => navigate(`/board/${id}`);
   return (
-    <div>
-      <div className="playerCountSelect">
+    <div className="page">
+      <NavBar>
         <button className="select" onClick={() => navigate(`/setup=${createSetup(playerCount)}`)}>Refresh</button>
         <button className="select" onClick={() => navigate('/')}>Reset</button>
-      </div>
+      </NavBar>
+
       <RoundTiles roundTiles={roundTiles} />
       <BonusCards bonusCards={bonusCards}/>
       <button className="select" onClick={() => setFactionScore(!showFactionsScore)}>
           {showFactionsScore ? 'Hide Factions' : 'Show Faction'}
         </button>
       {showFactionsScore
-        ? <FactionScoring bonusCards={bonusCards} roundTiles={roundTiles} />
+        ? <FactionScoring bonusCards={bonusCards} roundTiles={roundTiles} onClick={onClick} />
         : null}
-      </div>  
+    </div>
   );
 };
 

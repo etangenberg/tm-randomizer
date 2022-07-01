@@ -1,3 +1,44 @@
 .board-hex {
-  stroke: white;
+  stroke: rgb(239, 213, 152);
+  stroke-width: 2px;
+}
+
+.river {
+  stroke-width: 0;
+  stroke: rgb(54, 98, 122);
+  z-index: 2000;
+}
+
+.startPos {
+  filter: drop-shadow(0px 0px 3px rgb(0, 0, 0));
+  fill: rgba(255, 255, 255, 0.716);
+}
+
+.prior1 {
+  stroke: rgb(0, 255, 0);
+  stroke-width: 4px;
+}
+
+
+.prior2 {
+  stroke: rgb(225, 255, 0);
+  stroke-width: 3px;
+  border: 2px solid red;
+}
+
+.prior3 {
+  stroke: rgb(255, 136, 0);
+  stroke-width: 2px;
+}
+
+
+.faction {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.faction-name {
+  padding-left: 1em;
+  font-size: 20px;
 }

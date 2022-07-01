@@ -6,6 +6,10 @@ import TileElement from '../common/tile-element';
 import factions from '../data/factions.json';
 
 const FactionScoring = ({ roundTiles, bonusCards, onClick }) => {
+const onClickAttr = (id) => ({
+  onClick: () => onClick(id),
+})
+
   const renderRoundTilesScore = () => (
     <div className="score-type">
       <div className="score-header">Round tile score</div>
@@ -17,7 +21,7 @@ const FactionScoring = ({ roundTiles, bonusCards, onClick }) => {
         .map((faction) => (
           <div>
             <div className="score">{faction.rt_score}</div>
-            <TileElement {...({ ...faction, onClick })} />
+            <TileElement {...({ ...faction, ...onClickAttr(faction.id) })} />
           </div>
         ))
       }
@@ -35,7 +39,7 @@ const FactionScoring = ({ roundTiles, bonusCards, onClick }) => {
         .map((faction) => (
           <div>
             <div className="score">{faction.bc_score}</div>
-            <TileElement {...faction} />
+            <TileElement {...({ ...faction, ...onClickAttr(faction.id) })} />
           </div>
         ))
       }

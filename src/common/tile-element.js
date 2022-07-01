@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const TileElement = ({ className, src, id, onClick }) => (
 <div
-  onClick={() => onClick(id)}
+  onClick={onClick}
   className={className}
 >
   <img src={src} alt={id} className="round-tile-image" />

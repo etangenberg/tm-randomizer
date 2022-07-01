@@ -15,27 +15,42 @@
 }
 
 .startPos {
-  filter: drop-shadow(0px 0px 4px rgb(92, 165, 92));
+  filter: drop-shadow(0px 0px 3px rgb(0, 0, 0));
+  fill: rgba(255, 255, 255, 0.716);
 }
 
 .prior1 {
-  fill: rgba(0, 128, 0, 0.39);
-  stroke: rgba(2, 80, 2, 0.63);
+  stroke: rgb(0, 255, 0);
   stroke-width: 4px;
 }
 
 
 .prior2 {
-  fill: rgba(255, 255, 0, 0.315);
-  stroke: rgb(218, 218, 0);
+  stroke: rgb(225, 255, 0);
   stroke-width: 3px;
+  border: 2px solid red;
 }
 
 .prior3 {
-  fill: rgba(255, 166, 0, 0.351);
-  stroke: orangered;
+  stroke: rgb(255, 136, 0);
   stroke-width: 2px;
 }
 .link {
-  font-size: 8px;
+  font-size: 10px;
+}
+.nav-bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.faction {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.faction-name {
+  padding-left: 1em;
+  font-size: 20px;
 }

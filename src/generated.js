@@ -32,6 +32,7 @@ const Generated = () => {
     );
   }
 
+  const onClick = (id) => navigate(`/board/${id}`);
   return (
     <div>
       <a href='https://boardgamegeek.com/file/download_redirect/19d79ac39ef3f61b44df7eae5ba04b089f62116038be06cd/Terra+Mystica+Strategy+Reference+Sheet+v0_5.pdf'>
@@ -47,7 +48,7 @@ const Generated = () => {
           {showFactionsScore ? 'Hide Factions' : 'Show Faction'}
         </button>
       {showFactionsScore
-        ? <FactionScoring bonusCards={bonusCards} roundTiles={roundTiles} />
+        ? <FactionScoring bonusCards={bonusCards} roundTiles={roundTiles} onClick={onClick} />
         : null}
       </div>  
   );

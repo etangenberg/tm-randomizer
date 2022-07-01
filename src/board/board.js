@@ -7,7 +7,7 @@ import strategy from '../data/strategy.json';
 
 import "./board.css";
 
-const url = 'https://boardgamegeek.com/file/download_redirect/84025645d2087ac3fee26f7156e280e8be101ed15c69ab2f/Terra+Mystica+Strategy+Reference+Sheet+v0_5.pdf';
+const url = 'https://boardgamegeek.com/filepage/104541/terra-mystica-strategy-reference-guide';
 const abbr = {
   d: 'desert',
   f: 'forest',
@@ -120,9 +120,13 @@ const terrainDef = (id) => (
 
   return (
     <div className="game-board">
-      <div className="navbar">
+      <div className="nav-bar">
         <button onClick={() => navigate(-1)}>back</button>
         <a className="link" href={url}>Strategy file</a>
+      </div>
+      <div className="faction">
+        <img src={`../${factionData.src}`} alt={faction} className="round-tile-image" />
+        <div className='faction-name'>{factionData.name}</div>
       </div>
       <div className="game-board-title">
         <svg viewport="" width={`${width}px`} height={`${height}px`} version="1.1" xmlnsXlink="http://www.w3.org/1999/xlink" >

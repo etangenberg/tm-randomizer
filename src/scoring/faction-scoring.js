@@ -19,7 +19,7 @@ const onClickAttr = (id) => ({
         }))
         .sort((a, b) => (b.rt_score - a.rt_score))
         .map((faction) => (
-          <div>
+          <div key={faction.id}>
             <div className="score">{faction.rt_score}</div>
             <TileElement {...({ ...faction, ...onClickAttr(faction.id) })} />
           </div>
@@ -37,7 +37,7 @@ const onClickAttr = (id) => ({
         }))
         .sort((a, b) => (b.bc_score - a.bc_score))
         .map((faction) => (
-          <div>
+          <div key={faction.id}>
             <div className="score">{faction.bc_score}</div>
             <TileElement {...({ ...faction, ...onClickAttr(faction.id) })} />
           </div>

@@ -5,7 +5,7 @@ const RoundTiles = ({ roundTiles }) => (
   <div className="round-tiles">
     {roundTiles.map(
       (k, index) => (
-        <div className="round">
+        <div className="round" key={k.id}>
           <div className="round-name">{`Round ${index+1}`}</div>
           <TileElement
             className="round-tile"

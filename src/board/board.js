@@ -50,6 +50,7 @@ const Board = ({ map }) => {
     const [x,y] = getPos(c,r);
     return (
       <circle
+        key={`s${s}_${c}-${r}`}
         cx={v(x + 50)}
         cy={v(y + 50)}
         r={s * 10 * scale}
@@ -68,8 +69,8 @@ const Board = ({ map }) => {
   ];
   const hex = (dx, dy) => defHex.map(([x,y]) => p(x, y, dx, dy)).join(',') ;
 
-  const polygon = ([r,c, type], [dx, dy], className) => (
-    <polygon key={`${r}-${c}`} points={hex(dx, dy)}
+  const polygon = ([r,c, type], [dx, dy]) => (
+    <polygon key={`p${r}-${c}`} points={hex(dx, dy)}
       className={["board-hex", abbr[type]].join(' ')}
       strokeWidth="1"
       fill={`url(#${abbr[type]})`}
@@ -80,6 +81,7 @@ const upperCase = (string) => string && (string.charAt(0).toUpperCase() + string
 
 const terrainDef = (id) => (
   <pattern
+    key={id}
     id={id}
     height="140%"
     width="140%"
@@ -113,7 +115,7 @@ const terrainDef = (id) => (
     map
       .map((row, ri) => row.map((pos, ci) => {
         const [x, y] = getPos(ci, ri);
-        return <text x={v(x + 3)} y={v(y + 50)} class="index">{`[${ci}, ${ri}]`}</text>
+        return <text key={`sp${ci}-${ri}`} x={v(x + 3)} y={v(y + 50)} class="index">{`[${ci}, ${ri}]`}</text>
   })));
 
   const height = (map.length*nextRow + 25) * scale;
@@ -125,11 +127,11 @@ const terrainDef = (id) => (
         <button onClick={() => navigate(-1)}>back</button>
       </NavBar>
       <div className="faction">
-        <img src={`../${factionData.src}`} alt={faction} className="round-tile-image" />
+        <img src={`../${factionData.src}`} alt={faction} className="faction-image" />
         <div className='faction-name'>{factionData.name}</div>
       </div>
       <div className="game-board-title">
-        <svg viewport="" width={`${width}px`} height={`${height}px`} version="1.1" xmlnsXlink="http://www.w3.org/1999/xlink" >
+        <svg viewBox={`0 0 ${width} ${height}`} version="1.1" xmlnsXlink="http://www.w3.org/1999/xlink" >
           <defs>
             {terrains.map(terrainDef)}
           </defs>
@@ -139,9 +141,9 @@ const terrainDef = (id) => (
           {indices ? renderIndices() : null}
         </svg>
       </div>
-      <div className='strategy'>
-        {strategy[faction].join('\n')}
-      </div>
+      <ul className='strategy'>
+        {strategy[faction].map((s) => <li key={s}>{s}</li>)}
+      </ul>
     </div>
   );
 };

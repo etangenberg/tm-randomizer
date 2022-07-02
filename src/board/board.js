@@ -127,11 +127,11 @@ const terrainDef = (id) => (
         <button onClick={() => navigate(-1)}>back</button>
       </NavBar>
       <div className="faction">
-        <img src={`../${factionData.src}`} alt={faction} className="round-tile-image" />
+        <img src={`../${factionData.src}`} alt={faction} className="faction-image" />
         <div className='faction-name'>{factionData.name}</div>
       </div>
       <div className="game-board-title">
-        <svg viewport="" width={`${width}px`} height={`${height}px`} version="1.1" xmlnsXlink="http://www.w3.org/1999/xlink" >
+        <svg viewBox={`0 0 ${width} ${height}`} version="1.1" xmlnsXlink="http://www.w3.org/1999/xlink" >
           <defs>
             {terrains.map(terrainDef)}
           </defs>
@@ -141,9 +141,9 @@ const terrainDef = (id) => (
           {indices ? renderIndices() : null}
         </svg>
       </div>
-      <div className='strategy'>
-        {strategy[faction].join('\n')}
-      </div>
+      <ul className='strategy'>
+        {strategy[faction].map((s) => <li key={s}>{s}</li>)}
+      </ul>
     </div>
   );
 };

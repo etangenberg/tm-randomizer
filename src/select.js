@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 
 import NavBar from './common/nav-bar';
-import createSetup from './create-setup';
+import createSetup from './create-random-setup';
 
 const Select = () => {
   const { setup } = useParams();

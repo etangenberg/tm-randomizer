@@ -6,5 +6,6 @@
   { "id": "SH/SA-5VP_2F=W", "key": 5, "src": "./images/scoringB3Fire.gif" },
   { "id": "D-2VP_4F=4PW", "key": 6, "src": "./images/scoringB1Fire.gif" },
   { "id": "SH/SA-5VP_2A=W", "key": 7, "src": "./images/scoringB3Air.gif" },
-  { "id": "TP-3VP_4A=Spade", "key": 8, "src": "./images/scoringB2Air.gif" }
+  { "id": "TP-3VP_4A=Spade", "key": 8, "src": "./images/scoringB2Air.gif" },
+  { "id": "TM-4VP_P=2C", "key": 9, "src": "./images/scoringTemple.gif", "set": "promo" }
 ]

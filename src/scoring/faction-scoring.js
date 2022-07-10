@@ -5,7 +5,7 @@ import TileElement from '../common/tile-element';
 
 import factions from '../data/factions.json';
 
-const FactionScoring = ({ roundTiles, bonusCards, onClick }) => {
+const FactionScoring = ({ roundTiles, bonusCards, onClick, config }) => {
 const onClickAttr = (id) => ({
   onClick: () => onClick(id),
 })
@@ -33,7 +33,7 @@ const onClickAttr = (id) => ({
       <div className="score-header">Bonus cards score</div>
       {factions
         .map(({ bonusCards: fbc, ...faction })=> ({
-          bc_score: calcBonus(bonusCards.map(({key}) => key), fbc), ...faction
+          bc_score: calcBonus(bonusCards.map(({key}) => key), fbc, config), ...faction
         }))
         .sort((a, b) => (b.bc_score - a.bc_score))
         .map((faction) => (

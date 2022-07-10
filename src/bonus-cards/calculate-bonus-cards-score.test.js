@@ -82,11 +82,11 @@ describe('Function - sut', () => {
 
     it.each([
       [[1,2,3], [1,2], [3], { prefer: 2 }, 3],
-      [[1,6,7,9], [6,9], [1,7], { dislike: 0.5 }, 1],
+      [[1,6,7,9], [6,9], [1,7], { dislike: 0.5 }, 3],
       [[1,6,7,9], [6, 7], [9], { dislike: 0 }, 2],
     ])('weights can be added', (bonusCards, prefer, dislike, weights, value) => {
       const preference = { prefer, dislike };
-      expect(sut(bonusCards, preference, weights)).toBe(value);
+      expect(sut(bonusCards, preference, { weights })).toBe(value);
     });
   });
 });

@@ -9,6 +9,11 @@ import RoundTiles from "./round-tiles/component/round-tiles";
 import FactionScoring from "./scoring/faction-scoring";
 import NavBar from "./common/nav-bar";
 
+const factionScoring = {
+  weights: { prefer: 2, neutral: 0.5, dislike: -1 },
+  equalize: true,
+  maxScore: 1 
+};
 const Generated = () => {
   const [showFactionsScore, setFactionScore] = useState(false);
   const { setup: paramString } = useParams();
@@ -47,7 +52,7 @@ const Generated = () => {
           {showFactionsScore ? 'Hide Factions' : 'Show Faction'}
         </button>
       {showFactionsScore
-        ? <FactionScoring bonusCards={bonusCards} roundTiles={roundTiles} onClick={onClick} />
+        ? <FactionScoring config={factionScoring} bonusCards={bonusCards} roundTiles={roundTiles} onClick={onClick} />
         : null}
     </div>
   );

@@ -2,12 +2,13 @@ import React, { useState } from 'react'
 import { useNavigate, useParams } from "react-router-dom";
 import BonusCards from "./bonus-cards/bonus-cards";
 import collectBonusCardsByKeys from "./bonus-cards/collect-bonus-bards-by-keys";
-import createSetup from "./create-setup";
+import createSetup from "./create-random-setup";
 import decodeSetup from "./decode-setup";
 import collectRoundTilesByKeys from "./round-tiles/collect-round-tiles-by-keys";
 import RoundTiles from "./round-tiles/component/round-tiles";
 import FactionScoring from "./scoring/faction-scoring";
 import NavBar from "./common/nav-bar";
+import createSetupString from './create-setup-string';
 
 const Generated = () => {
   const [showFactionsScore, setFactionScore] = useState(false);
@@ -33,6 +34,19 @@ const Generated = () => {
     );
   }
 
+  const incCard = (index, targetArray, maxKey) => {
+    const nextArray = [...targetArray];
+    const currentKey = targetArray.at(index);
+    const nextKey = currentKey >= maxKey ? 1 : currentKey + 1;
+    const nextKeyCurrentIndex = targetArray.findIndex((k) => k === nextKey);
+    if (nextKeyCurrentIndex < 0)
+      nextArray[index] = nextKey;
+    else 
+      nextArray[index] = nextArray.splice(nextKeyCurrentIndex, 1, targetArray[index])[0];
+
+    if (targetArray === bonusCardKeys) navigate(`/setup=${createSetupString(roundTileKeys, nextArray)}`)
+    else navigate(`/setup=${createSetupString(nextArray, bonusCardKeys)}`)
+  };
   const onClick = (id) => navigate(`/board/${id}`);
   return (
     <div className="page">
@@ -41,8 +55,8 @@ const Generated = () => {
         <button className="select" onClick={() => navigate('/')}>Reset</button>
       </NavBar>
 
-      <RoundTiles roundTiles={roundTiles} />
-      <BonusCards bonusCards={bonusCards}/>
+      <RoundTiles roundTiles={roundTiles}  onClick={(index) => incCard(index, roundTileKeys, 9)}/>
+      <BonusCards bonusCards={bonusCards} onClick={(index) => incCard(index, bonusCardKeys, 10)}/>
       <button className="select" onClick={() => setFactionScore(!showFactionsScore)}>
           {showFactionsScore ? 'Hide Factions' : 'Show Faction'}
         </button>

@@ -1,5 +1,6 @@
 import generateTiles from './round-tiles/generate-round-tiles';
 import generateCards from './bonus-cards/generate-bonus-cards';
+import createSetupString from './create-setup-string';
 
 import scoring from './data/round-tiles.json';
 
@@ -12,7 +13,7 @@ const createSetup = (playerCount) => {
   }
   const roundTiles = generateTiles({ validRoundTile });
   const bonusCards = generateCards(playerCount);
-  return `${roundTiles.join('-')}_${bonusCards.join('-')}`;
+  return createSetupString(roundTiles, bonusCards);
 };
 
 export default createSetup;

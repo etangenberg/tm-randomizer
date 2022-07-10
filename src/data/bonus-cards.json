@@ -28,6 +28,6 @@
     "id": "Pass-SH/SA-5VP_2W", "key": 9, "src": "./images/bonusOnPassB3.png"
   },
   {
-    "id": "Pass-Ship-3VP_3PW", "key": 10, "src": "./images/bonusOnPassShip.png"
+    "id": "Pass-Ship-3VP_3PW", "key": 10, "src": "./images/bonusOnPassShip.png", "set": "promo" 
   }
 ]

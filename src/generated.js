@@ -55,7 +55,7 @@ const Generated = () => {
         <button className="select" onClick={() => navigate('/')}>Reset</button>
       </NavBar>
 
-      <RoundTiles roundTiles={roundTiles}  onClick={(index) => incCard(index, roundTileKeys, 8)}/>
+      <RoundTiles roundTiles={roundTiles}  onClick={(index) => incCard(index, roundTileKeys, 9)}/>
       <BonusCards bonusCards={bonusCards} onClick={(index) => incCard(index, bonusCardKeys, 10)}/>
       <button className="select" onClick={() => setFactionScore(!showFactionsScore)}>
           {showFactionsScore ? 'Hide Factions' : 'Show Faction'}

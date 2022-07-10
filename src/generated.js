@@ -35,14 +35,22 @@ const Generated = () => {
   }
 
   const incCard = (index, targetArray, maxKey) => {
-    const nextArray = [...targetArray];
+    const nextKey = (key) => key >= maxKey ? 1 : key + 1;
+    
+    const setNextKey = (index, key) => {
+      const nextArray = [...targetArray];
+      const nextKeyCurrentIndex = targetArray.findIndex((k) => k === key);
+      if (nextKeyCurrentIndex < 0)
+        nextArray[index] = key;
+      else if (nextKeyCurrentIndex > index)
+        nextArray[index] = nextArray.splice(nextKeyCurrentIndex, 1, targetArray[index])[0];
+      else
+        return setNextKey(index, nextKey(key))
+      return nextArray;
+    };
+
     const currentKey = targetArray.at(index);
-    const nextKey = currentKey >= maxKey ? 1 : currentKey + 1;
-    const nextKeyCurrentIndex = targetArray.findIndex((k) => k === nextKey);
-    if (nextKeyCurrentIndex < 0)
-      nextArray[index] = nextKey;
-    else 
-      nextArray[index] = nextArray.splice(nextKeyCurrentIndex, 1, targetArray[index])[0];
+    const nextArray = setNextKey(index, nextKey(currentKey));
 
     if (targetArray === bonusCardKeys) navigate(`/setup=${createSetupString(roundTileKeys, nextArray)}`)
     else navigate(`/setup=${createSetupString(nextArray, bonusCardKeys)}`)
